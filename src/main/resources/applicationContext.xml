@@ -8,16 +8,19 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:musciPlayer.properties"/>
+
     <bean id="rockMusic"
           class="ru.spring.RockMusic"
           scope="prototype"
           init-method="myInitMethod"
           destroy-method="myDestroyMethod">
     </bean>
+
     <bean id="classicalMusic"
           class="ru.spring.ClassicalMusic"
           init-method="myInitMethod"
-          destroy-method="myDestroyMethod">
+          destroy-method="myDestroyMethod"
+          factory-method="getClassicalMusic">
     </bean>
 
     <bean id="musicPlayer"
