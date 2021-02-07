@@ -9,10 +9,15 @@
 
     <context:property-placeholder location="classpath:musciPlayer.properties"/>
     <bean id="rockMusic"
-          class="ru.spring.RockMusic">
+          class="ru.spring.RockMusic"
+          scope="prototype"
+          init-method="myInitMethod"
+          destroy-method="myDestroyMethod">
     </bean>
     <bean id="classicalMusic"
-          class="ru.spring.ClassicalMusic">
+          class="ru.spring.ClassicalMusic"
+          init-method="myInitMethod"
+          destroy-method="myDestroyMethod">
     </bean>
 
     <bean id="musicPlayer"
